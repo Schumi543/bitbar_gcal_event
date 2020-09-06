@@ -3,7 +3,7 @@
 A BitBar plugin that show your upcoming meeting from Google Calendar.
 And launch your video meeting with 1 click.
 
-![screenshot](https://github.com/Schumi543/bitbar_gcal_event/master/doc/screenshot.gif?raw=true)
+![screenshot](https://github.com/Schumi543/bitbar_gcal_event/blob/master/doc/screenshot.gif?raw=true)
 
 ## Installation
 ### 1. setup bitbar
