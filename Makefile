@@ -14,6 +14,8 @@ help:
 	@echo "    run bitbar script and print result"
 	@echo "make test:"
 	@echo "    run unittest"
+	@echo "make lint:"
+	@echo "    run linter(black)"
 
 .DEFAULT: venv show-venv
 	@echo to activate the virtual environment in a shell
@@ -26,3 +28,6 @@ test: $(PYTHON)
 
 run: $(PYTHON) $(MAIN)
 	$(VENV)/python $(MAIN)
+
+lint: $(PYTHON)
+	$(VENV)/black .
