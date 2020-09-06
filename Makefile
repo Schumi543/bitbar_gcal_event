@@ -26,7 +26,7 @@ help:
 
 dev: venv
 	$(VENV)/pip install pipdeptree
-	$(VENV)/pip install black
+	$(VENV)/pip install black isort[requirements_deprecated_finder]
 
 test: $(PYTHON)
 	$(VENV)/python -m unittest
@@ -36,3 +36,4 @@ run: $(PYTHON) $(MAIN)
 
 lint: dev $(PYTHON)
 	$(VENV)/black .
+	$(VENV)/isort .
