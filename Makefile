@@ -34,6 +34,6 @@ test: $(PYTHON)
 run: $(PYTHON) $(MAIN)
 	$(VENV)/python $(MAIN)
 
-lint: dev $(PYTHON)
+lint: $(PYTHON)
 	$(VENV)/black .
 	$(VENV)/isort .
