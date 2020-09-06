@@ -14,15 +14,26 @@ help:
 	@echo "    run bitbar script and print result"
 	@echo "make test:"
 	@echo "    run unittest"
+	@echo "make dev:"
+	@echo "    install dev requirements"
+	@echo "make lint:"
+	@echo "    run linter(black)"
 
 .DEFAULT: venv show-venv
 	@echo to activate the virtual environment in a shell
 	@echo source .venv/bin/activate
 	@echo or type make bash
 
+dev: venv
+	$(VENV)/pip install pipdeptree
+	$(VENV)/pip install black isort[requirements_deprecated_finder]
 
 test: $(PYTHON)
 	$(VENV)/python -m unittest
 
 run: $(PYTHON) $(MAIN)
 	$(VENV)/python $(MAIN)
+
+lint: $(PYTHON)
+	$(VENV)/black .
+	$(VENV)/isort .
