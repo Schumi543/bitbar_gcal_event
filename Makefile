@@ -14,6 +14,8 @@ help:
 	@echo "    run bitbar script and print result"
 	@echo "make test:"
 	@echo "    run unittest"
+	@echo "make dev:"
+	@echo "    install dev requirements"
 	@echo "make lint:"
 	@echo "    run linter(black)"
 
@@ -22,6 +24,9 @@ help:
 	@echo source .venv/bin/activate
 	@echo or type make bash
 
+dev: venv
+	$(VENV)/pip install pipdeptree
+	$(VENV)/pip install black
 
 test: $(PYTHON)
 	$(VENV)/python -m unittest
@@ -29,5 +34,5 @@ test: $(PYTHON)
 run: $(PYTHON) $(MAIN)
 	$(VENV)/python $(MAIN)
 
-lint: $(PYTHON)
+lint: dev $(PYTHON)
 	$(VENV)/black .
