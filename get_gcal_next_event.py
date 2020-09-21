@@ -85,7 +85,7 @@ def _get_event_(creds):
     )
     events = events_result.get("items", [])
 
-    if events is None:
+    if len(events) == 0:
         print("No upcoming events found.")
         return
 
