@@ -31,6 +31,9 @@ def main():
     creds = _get_creds()
     event = _get_event_(creds)
 
+    if event is None:
+        return
+
     name, start_time, hangout_link, stream_uri = _parse_event(event)
 
     if hangout_link is not None:
@@ -82,7 +85,7 @@ def _get_event_(creds):
     )
     events = events_result.get("items", [])
 
-    if not events:
+    if events is None:
         print("No upcoming events found.")
         return
 
